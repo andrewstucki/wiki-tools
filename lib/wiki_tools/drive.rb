@@ -52,8 +52,7 @@ module WikiTools
       def with_retries(n = 10, &block)
         raise RetryError.new("Failed after multiple attempts") if n == 0
         block.call if block_given?
-      rescue Google::Apis::ClientError => e
-        puts e
+      rescue Google::Apis::ClientError
         sleep 0.5 # wait in case of needing to back off
         with_retries(n - 1, &block)
       end
