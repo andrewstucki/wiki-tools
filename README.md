@@ -1,6 +1,14 @@
 # wiki-tools
 Google Drive tools for wiki migration
 
+# Requirements
+- ruby
+- bundler
+ 
+# Installation
+    git clone https://github.com/andrewstucki/wiki-tools.git && cd wiki-tools
+    bundle install
+
 # Usage
     wiki-tools [options] (command) [command params]
     example: ./bin/wiki-tools -i [MY_ISSUER] -e [MY_EMAIL] -s [MY_KEYFILE] -v rename [FOLDER_ID] Austin Aus
