@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.join(File.dirname(__FILE__), "..", "lib")
+
+require 'rubygems'
+require 'bundler'
+Bundler.setup(:default)
+
+require 'google/api_client/auth/key_utils'
+require 'google/apis/drive_v3'
+
+require 'wiki_tools/cli'
+
+begin
+  cli = WikiTools::CLI.instance
+  cli.parse
+  cli.run!
+rescue => e
+  raise e if $DEBUG
+  STDERR.puts e.message
+  STDERR.puts e.backtrace.join("\n")
+  exit 1
+end
